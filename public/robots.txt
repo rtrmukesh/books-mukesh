@@ -3,4 +3,4 @@ User-agent: *
 Disallow:
 
 # Sitemap location
-Sitemap: https://books.themukesh.com/sitemap.xml
+Sitemap: https://books.themukesh.com/sitemap-index.xml
