@@ -34,12 +34,12 @@ export default function RootLayout({
         />
         {/* AdSense verification meta tag */}
         <meta name="google-adsense-account" content="ca-pub-7493262026277368" />
-
+        <GoogleTagManager gtmId={"GT-MK9M3K66"} />
          {/* Google Analytics */}
        <GoogleAnalytics
           gaId={"G-WP7471XCCF"}
         />
-        {/* <GoogleTagManager gtmId={"G-WP7471XCCF"} /> */}
+        
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
