@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
+import Loader from "@/components/Loader";
 
 type Book = {
   id: number;
@@ -56,9 +57,9 @@ export default function HomeClient() {
     return () => observer.disconnect();
   }, [hasNextPage, fetchNextPage]);
 
-  if (status === "pending") {
-    return <div className="p-10 text-center">Loading books...</div>;
-  }
+ if (status === "pending") {
+  return <Loader text="Loading books..." />;
+}
 
   if (status === "error") {
     return <div className="p-10 text-center">Failed to load books</div>;
@@ -157,14 +158,14 @@ export default function HomeClient() {
 
               <div className="p-5">
                 <Link href={`/books/${book.slug}`}>
-                  <h3 className="font-bold line-clamp-2">{book.title}</h3>
+                  <h3 className="font-bold line-clamp-2 text-black">{book.title}</h3>
                 </Link>
                 <p className="text-sm text-gray-600 line-clamp-3 mt-2">
                   {book.description}
                 </p>
 
                 <div className="flex justify-between items-center mt-4">
-                  <div className="flex items-center gap-1 text-sm">
+                  <div className="flex items-center gap-1 text-sm text-black">
                     <Download size={16} />
                     {book.downloads.toLocaleString()}
                   </div>

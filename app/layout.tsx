@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
-
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -34,11 +34,18 @@ export default function RootLayout({
         />
         {/* AdSense verification meta tag */}
         <meta name="google-adsense-account" content="ca-pub-7493262026277368" />
+
+         {/* Google Analytics */}
+       <GoogleTagManager
+          gtmId={"G-WP7471XCCF"}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* <GoogleTagManager gtmId={"G-WP7471XCCF"} /> */}
         <Providers>{children}</Providers>
+        {/* <GoogleAnalytics gaId={GAID} /> */}
       </body>
     </html>
   );
