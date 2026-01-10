@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Download, Eye, Calendar, User, BookOpen, Star, Clock, Share2 } from 'lucide-react';
+import { SEO_KEYWORDS } from '@/data/seo';
 
 function getIdFromSlug(slug: string) {
   return slug.split("-")[0];
@@ -40,6 +41,7 @@ export async function generateMetadata({ params }: {
   return {
     title: `${book.title} | Free PDF Download`,
     description: book.description,
+    keywords: SEO_KEYWORDS,
     openGraph: {
       title: book.title,
       description: book.description,
