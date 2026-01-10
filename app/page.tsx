@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   creator: "@mukeshmurugaiyan",
   publisher: "@mukeshmurugaiyan",
   openGraph: {
-    title: "Free Public Domain Books | Download PDFs Online",
+    title: "Mukesh Murugaiyan | Free Public Domain Books | Download PDFs Online",
     description:
       "Explore thousands of free public domain books. Download full PDF versions of classic literature and enjoy reading online for free.",
     url: "https://books.themukesh.com",
