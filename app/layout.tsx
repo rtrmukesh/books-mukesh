@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Free Public Domain Books PDF Download | books.themukesh.com",
+    default: "Mukesh Murugaiyan | Free Public Domain Books PDF Download | books.themukesh.com",
     template: "%s | books.themukesh.com",
   },
 

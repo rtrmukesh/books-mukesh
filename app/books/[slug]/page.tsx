@@ -39,9 +39,9 @@ export async function generateMetadata({ params }: {
   };
 
   return {
-    title: `${book.title} | Free PDF Download`,
+    title: `Mukesh Murugaiyan | ${book.title} | Free PDF Download`,
     description: book.description,
-    keywords: SEO_KEYWORDS,
+    keywords: SEO_KEYWORDS.concat(book?.subjects),
     openGraph: {
       title: book.title,
       description: book.description,
