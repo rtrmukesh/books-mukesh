@@ -4,3 +4,6 @@ Disallow:
 
 # Sitemap location
 Sitemap: https://books.themukesh.com/sitemap-index.xml
+Sitemap: https://books.themukesh.com/sitemap-1.xml
+Sitemap: https://books.themukesh.com/sitemap-2.xml
+Sitemap: https://books.themukesh.com/sitemap-3.xml
