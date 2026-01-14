@@ -62,15 +62,24 @@ export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
 
   const page = Number(searchParams.get("page") || 1);
-  const pageSize = 20;
-const data = await getBooks();
+  const search = (searchParams.get("search") || "").toLowerCase();
+  const pageSize = 20;  
+  const data = await getBooks();
 
-  const totalCount = data.length;
+    const filtered = search
+    ? data.filter(
+        (book) =>
+          book.title.toLowerCase().includes(search) ||
+          book.description.toLowerCase().includes(search)
+      )
+    : data;
+
+  const totalCount = filtered.length;
 
   const start = (page - 1) * pageSize;
   const end = start + pageSize;
 
-  const books: Book[] = data.slice(start, end).map((book) => ({
+  const books: Book[] = filtered.slice(start, end).map((book) => ({
     id: book.id,
     slug: createSlug(book.id, book.title),
     title: book.title,
@@ -82,8 +91,8 @@ const data = await getBooks();
 
   const response: BooksApiResponse = {
     count: totalCount,
-    next: end < totalCount ? `/api/books?page=${page + 1}` : null,
-    previous: page > 1 ? `/api/books?page=${page - 1}` : null,
+     next: end < totalCount ? `/api/books?page=${page + 1}&search=${search}` : null,
+    previous: page > 1 ? `/api/books?page=${page - 1}&search=${search}` : null,
     page,
     pageSize,
     books,
